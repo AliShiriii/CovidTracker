@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/bluecodebg.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/card_drawable.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/county_code_drawable.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/ic_drop_down.xml" value="0.24205128205128204" />
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/relativebg.xml" value="0.2064814814814815" />
+        <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/drawable/viewbg.xml" value="0.2064814814814815" />
         <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/layout/activity_main.xml" value="0.2296875" />
         <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/layout/fragment_blan.xml" value="0.215625" />
         <entry key="..\:/Users/Ali/Desktop/CovidTracker/app/src/main/res/layout/fragment_covid_tracker.xml" value="0.2296875" />

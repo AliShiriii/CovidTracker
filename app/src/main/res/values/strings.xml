@@ -2,4 +2,16 @@
     <string name="app_name">CovidTracker</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="covid_19">Covid-19</string>
+    <string name="active">Active</string>
+    <string name="deaths">Deaths</string>
+    <string name="recovered">Recovered</string>
+    <string name="total">Total</string>
+    <string name="number">Number</string>
+    <string name="incorrectnumber">IncorrectNumber</string>
+    <string name="active">Active</string>
+    <string name="recovered">Recovered</string>
+    <string name="deaths">Deaths</string>
+    <string name="country">Country</string>
+    <string name="cases">Cases</string>
 </resources>
