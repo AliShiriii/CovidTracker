@@ -55,14 +55,12 @@
                 android:orientation="horizontal">
 
                 <org.eazegraph.lib.charts.PieChart
-                    android:id="@+id/piechart"
+                    android:id="@+id/pieChart"
                     android:layout_width="220dp"
                     android:layout_height="180dp"
                     android:padding="18dp"
-                    app:egLegendTextSize="8sp"
-                    app:egUsePieRotation="true"
-                    app:egValueTextSize="15sp" />
 
+                    />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

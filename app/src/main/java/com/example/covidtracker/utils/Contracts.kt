@@ -4,7 +4,7 @@ class Contracts {
 
     companion object{
 
-        const val BASE_URL = "https//corona.lmao.ninja/v2/"
+        const val BASE_URL = "https://corona.lmao.ninja/v2/"
 
     }
 

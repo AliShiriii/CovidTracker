@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface CovidApi {
 
     @GET("countries")
-   suspend fun getCountryData(): Call<List<ModelClass>>
+    fun getCountryData(): Call<List<ModelClass>>
 
 }

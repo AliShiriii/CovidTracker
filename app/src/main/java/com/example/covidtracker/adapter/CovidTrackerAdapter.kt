@@ -13,7 +13,6 @@ class CovidTrackerAdapter : RecyclerView.Adapter<CovidTrackerAdapter.CovidViewHo
 
     val numbers = 1
 
-
     inner class CovidViewHolder(private val binding: CoronaItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,11 +16,10 @@ import com.example.covidtracker.model.ModelClass
 import com.example.covidtracker.viewModel.CovidTrackerViewModel
 import com.hbb20.CountryCodePicker
 import dagger.hilt.android.AndroidEntryPoint
-import org.eazegraph.lib.charts.PieChart
 import org.eazegraph.lib.models.PieModel
 
 @AndroidEntryPoint
-class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class CovidTrackerFragment : Fragment() {
 
     private var _binding: FragmentCovidTrackerBinding? = null
     private val binding get() = _binding!!
@@ -33,9 +31,7 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     var deaths: Int = 0
 
     private lateinit var countryCodePicker: CountryCodePicker
-    private lateinit var spinner: Spinner
     private lateinit var country: String
-    private lateinit var pieChart: PieChart
     private lateinit var covidTrackerAdapter: CovidTrackerAdapter
     var types = arrayOf("cases", "deaths", "recovered", "active")
     private lateinit var modelClassList1: ArrayList<ModelClass>
@@ -55,12 +51,16 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        countryCodePicker = CountryCodePicker(requireContext())
+        modelClassList1 = ArrayList()
+        modelClassList2 = ArrayList()
+
         val arrayAdapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, types)
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = arrayAdapter
-        spinner.setSelection(0, true)
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinner.adapter = arrayAdapter
+        binding.spinner.setSelection(0, true)
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
 
                 val item = types[position]
@@ -73,14 +73,13 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 TODO("Not yet implemented")
             }
 
-
         }
 
-        viewModel.getCountryData()
+//        viewModel.getCountryData()
 
         viewModel.covid.observe(viewLifecycleOwner, { countryData ->
 
-            countryData.execute().body()?.let { modelClassList2.addAll(it) }
+            modelClassList2.addAll(countryData)
 
             covidTrackerAdapter.notifyDataSetChanged()
 
@@ -107,11 +106,11 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun fetchData() {
 
-        viewModel.getCountryData()
+//        viewModel.getCountryData()
         viewModel.covid.observe(viewLifecycleOwner, { covidData ->
 
-            covidData.execute().body()?.let { modelClassList1.addAll(it) }
-
+//            covidTrackerAdapter.differ.submitList(covidData.)
+            modelClassList1.addAll(covidData)
 
             for (covid in 0 until modelClassList1.size) {
 
@@ -146,22 +145,37 @@ class CovidTrackerFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private fun updateGraph(active: Int, total: Int, recovered: Int, deaths: Int) {
 
-        pieChart.clearChart()
-        pieChart.addPieSlice(PieModel("Confirm", total.toFloat(), Color.parseColor("#FFB701")))
-        pieChart.addPieSlice(PieModel("Active", active.toFloat(), Color.parseColor("#FF44caf50")))
-        pieChart.addPieSlice(PieModel("Recovered", recovered.toFloat(), Color.parseColor("#38ACCD")))
-        pieChart.addPieSlice(PieModel("Deaths", deaths.toFloat(), Color.parseColor("#F55c48")))
-        pieChart.startAnimation()
+        binding.pieChart.clearChart()
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Confirm",
+                total.toFloat(),
+                Color.parseColor("#FFB701")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Active",
+                active.toFloat(),
+                Color.parseColor("#FF44caf50")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Recovered",
+                recovered.toFloat(),
+                Color.parseColor("#38ACCD")
+            )
+        )
+        binding.pieChart.addPieSlice(
+            PieModel(
+                "Deaths",
+                deaths.toFloat(),
+                Color.parseColor("#F55c48")
+            )
+        )
+        binding.pieChart.startAnimation()
 
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-
-
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 
 }
