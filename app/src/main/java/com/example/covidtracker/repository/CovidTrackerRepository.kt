@@ -5,5 +5,5 @@ import javax.inject.Inject
 
 class CovidTrackerRepository @Inject constructor(private val covidApi: CovidApi){
 
-
+    suspend fun getCountryData() = covidApi.getCountryData()
 }

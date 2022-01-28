@@ -478,7 +478,7 @@
                         android:padding="5dp">
 
                         <TextView
-                            android:id="@+id/totalDeaths"
+                            android:id="@+id/DeathCases"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -512,12 +512,13 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ones"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/middleBg"
         android:layout_marginTop="5dp"
         android:background="@drawable/relativebg"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -542,11 +543,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:paddingStart="40dp"
-                android:textAlignment="center"
                 android:text="@string/cases"
-                android:gravity="center_horizontal"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -558,17 +559,17 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/ic_drop_down"
-
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recyclerView"
-            android:layout_marginTop="-5dp"
-            android:padding="5dp"
-
-            />
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp" />
     </LinearLayout>
+
 </RelativeLayout>
